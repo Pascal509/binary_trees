@@ -92,13 +92,13 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 /* Uncle*/
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
+/* print tree*/
+void binary_tree_print(const binary_tree_t *);
+
 /*Stores recursively each level in an array of strings*/
 /*static int print_t(const binary_tree_t *tree, int offset, int depth, char **s);*/
 
 /* Measures the height of a binary tree*/
 /* static size_t _height(const binary_tree_t *tree);*/
-
-/*Prints a binary tree*/
-void binary_tree_print(const binary_tree_t *tree);
 
 #endif /* _BINARY_TREES_H_ */
