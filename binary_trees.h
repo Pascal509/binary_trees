@@ -1,6 +1,10 @@
+#ifndef _BINARY_TREES_H_
+#define _BINARY_TREES_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stddef.h>
 
 //Basic Binary Tree
 
@@ -89,10 +93,12 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 //Stores recursively each level in an array of strings
-//static int print_t(const binary_tree_t *tree, int offset, int depth, char **s);
+static int print_t(const binary_tree_t *tree, int offset, int depth, char **s);
 
 //Measures the height of a binary tree
-//static size_t _height(const binary_tree_t *tree);
+static size_t _height(const binary_tree_t *tree);
 
 //Prints a binary tree
 void binary_tree_print(const binary_tree_t *tree);
+
+#endif /* _BINARY_TREES_H_ */
