@@ -17,15 +17,16 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 	binary_tree_t *newNode = malloc(sizeof(binary_tree_t));
 
 	/* Check if memory allocation was successful */
-	if (newNode == NULL)
-		return (0);
-
+	if (newNode != NULL)
+	{
 		/* initialize the values of newNode */
-		newNode->n = value;
-		newNode->parent = parent;
-		newNode->left = NULL;
-		newNode->right = NULL;
+                newNode->n = value;
+                newNode->parent = parent;
+                newNode->left = NULL;
+                newNode->right = NULL;
 
-		return (newNode);
+                return (newNode);
 	}
+	else
+		return NULL;
 }
