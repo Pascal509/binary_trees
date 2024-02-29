@@ -4,10 +4,7 @@
 
 /**
  * binary_tree_delete - function that deletes an entire binary tree
- * Args:
  * @tree: a pointer to the root node of the tree to delete
- * @value: argument inputted
- *
  * Return: Always 0 (Success)
  */
 
