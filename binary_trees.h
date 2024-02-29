@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stddef.h>
 
-//Basic Binary Tree
+/*Basic Binary Tree*/
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -18,87 +18,87 @@
  */
 struct binary_tree_s
 {
-    int n;
-    struct binary_tree_s *parent;
-    struct binary_tree_s *left;
-    struct binary_tree_s *right;
+	int n;
+	struct binary_tree_s *parent;
+	struct binary_tree_s *left;
+	struct binary_tree_s *right;
 };
 
 typedef struct binary_tree_s binary_tree_t;
 
-//Binary Search Tree
+/*Binary Search Tree*/
 typedef struct binary_tree_s bst_t;
 
-//AVL Tree
+/*AVL Tree*/
 typedef struct binary_tree_s avl_t;
 
-//Max Binary Heap
+/*Max Binary Heap*/
 typedef struct binary_tree_s heap_t;
 
-//New node
+/*New node*/
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 
-//Insert left
+/*Insert left*/
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 
-//Insert right
+/*Insert right*/
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
 
-//Delete
+/*Delete*/
 void binary_tree_delete(binary_tree_t *tree);
 
-//Is leaf
+/* Is leaf*/
 int binary_tree_is_leaf(const binary_tree_t *node);
 
-//Is root
+/*Is root*/
 int binary_tree_is_root(const binary_tree_t *node);
 
-//Pre-order traversal
+/*Pre-order traversal*/
 void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
 
-//In-order traversal
+/*In-order traversal*/
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));
 
-//Post-order traversal
+/*Post-order traversal*/
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
 
-//Height
+/*Height */
 size_t binary_tree_height(const binary_tree_t *tree);
 
-//Depth
+/* Depth */
 size_t binary_tree_depth(const binary_tree_t *tree);
 
-//Size
+/* Size */
 size_t binary_tree_size(const binary_tree_t *tree);
 
-//Leaves
+/* Leaves */
 size_t binary_tree_leaves(const binary_tree_t *tree);
 
-//Nodes
+/* Nodes */
 size_t binary_tree_nodes(const binary_tree_t *tree);
 
-//Balance factor
+/* Balance factor*/
 int binary_tree_balance(const binary_tree_t *tree);
 
-//Is full
+/*Is full */
 int binary_tree_is_full(const binary_tree_t *tree);
 
-//Is perfect
+/* Is perfect*/
 int binary_tree_is_perfect(const binary_tree_t *tree);
 
-//Sibling
+/*Sibling */
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 
-//Uncle
+/* Uncle*/
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
-//Stores recursively each level in an array of strings
+/*Stores recursively each level in an array of strings*/
 static int print_t(const binary_tree_t *tree, int offset, int depth, char **s);
 
-//Measures the height of a binary tree
+/* Measures the height of a binary tree*/
 static size_t _height(const binary_tree_t *tree);
 
-//Prints a binary tree
+/*Prints a binary tree*/
 void binary_tree_print(const binary_tree_t *tree);
 
 #endif /* _BINARY_TREES_H_ */
