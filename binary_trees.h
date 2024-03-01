@@ -103,4 +103,6 @@ void binary_tree_print(const binary_tree_t *);
 
 void launch_test(binary_tree_t *n1, binary_tree_t *n2);
 
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second);
+
 #endif /* _BINARY_TREES_H_ */
