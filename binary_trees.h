@@ -101,4 +101,6 @@ void binary_tree_print(const binary_tree_t *);
 /* Measures the height of a binary tree*/
 /* static size_t _height(const binary_tree_t *tree);*/
 
+void launch_test(binary_tree_t *n1, binary_tree_t *n2);
+
 #endif /* _BINARY_TREES_H_ */

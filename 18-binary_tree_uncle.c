@@ -22,3 +22,19 @@ binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 		return(node->parent->left);
 	return (NULL);
 }
+
+
+/**
+ * binary_tree_uncle main - a function that finds the uncle of a node
+ *Args:
+ * a function that finds the uncle of a node
+ *
+ * Return: Always 0 (Success)
+ */
+
+binary_tree_t *binary_tree_uncle(binary_tree_t *node)
+{
+	if (node == NULL || node ->parent == NULL || node->parent->parent == NULL)
+		return NULL;
+	return (binary_tree_sibling(node->parent));
+}

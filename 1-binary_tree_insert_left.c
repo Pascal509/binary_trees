@@ -13,28 +13,37 @@
  * Return: Always 0 (Success)
  */
 
-binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
+binary_tree_t *binary_tree_sibling(binary_tree_t *node)
 {
-	binary_tree_t *newLeftNode;
+        if (node == NULL || node->parent == NULL)
+                return (NULL);
+        if (node == node->parent->left)
+                return (node->parent->right);
+        if (node == node->parent->right)
+                return (node->parent->left);
+        return (NULL);
+}
 
-	if (parent == NULL)
-		return (NULL);
-	newLeftNode = binary_tree_node(parent, value);
-	if (newLeftNode == NULL)
-		return (NULL);
+binary_tree_t *binary_tree_uncle(binary_tree_t *node)
+{
+        if (node == NULL || node->parent == NULL || node->parent->parent == NULL)
+                return (NULL);
 
-	/* If parent has left node, set as left child of new node*/
-	if (parent->left != NULL)
-	{
-		newLeftNode->left = parent->left;
-		newLeftNode->left->parent = newLeftNode;
-		parent->left = newLeftNode;
-	}
-	else
-	{
-		/*Set new Node as left child of the parent*/
-		parent->left = newLeftNode;
-	}
+binary_tree_t *binary_tree_sibling(binary_tree_t *node)
+{
+        if (node == NULL || node->parent == NULL)
+                return (NULL);
+        if (node == node->parent->left)
+                return (node->parent->right);
+        if (node == node->parent->right)
+                return (node->parent->left);
+        return (NULL);
+}
 
-	return (newLeftNode);
+binary_tree_t *binary_tree_uncle(binary_tree_t *node)
+{
+        if (node == NULL || node->parent == NULL || node->parent->parent == NULL)
+                return (NULL);
+        return (binary_tree_sibling(node->parent));
+
 }
