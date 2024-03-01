@@ -121,4 +121,6 @@ void enqueue(queue_node_t **front, queue_node_t **rear, const binary_tree_t *nod
 
 const binary_tree_t *dequeue(queue_node_t **front, queue_node_t **rear);
 
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+
 #endif /* _BINARY_TREES_H_ */

@@ -5,20 +5,23 @@
 /**
  * enqueue - Function to enqueue a node in the queue
  *
- * @front: 
- * @rear:
- * @node: 
- */     
-void enqueue(queue_node_t **front, queue_node_t **rear, const binary_tree_t *node)
+ * @front: node at front
+ * @rear: node at the rear
+ * @node: new node
+ */
+void enqueue(queue_node_t **front, queue_node_t **rear,
+		const binary_tree_t *node)
 {
 	queue_node_t *new_node = malloc(sizeof(queue_node_t));
-	if (new_node == NULL) 
-		return (0);
+
+	if (new_node == NULL)
+		return;
 
 	new_node->node = node;
 	new_node->next = NULL;
 
-	if (*rear == NULL) {
+	if (*rear == NULL)
+	{
 		*front = *rear = new_node;
 	}
 	else
@@ -30,21 +33,22 @@ void enqueue(queue_node_t **front, queue_node_t **rear, const binary_tree_t *nod
 
 /**
  * dequeue - Function to dequeue a node in the queue
- * @front:
- * @rear:
- * @node:
+ * @front: front node
+ * @rear: rear node
+ *
+ * Return: 0;
  */
 const binary_tree_t *dequeue(queue_node_t **front, queue_node_t **rear)
 {
-	if (*front == NULL) {
+	if (*front == NULL)
 		return (NULL);
-	}
 
 	const binary_tree_t *node = (*front)->node;
 	queue_node_t *temp = *front;
 
 	*front = (*front)->next;
-	if (*front == NULL) {
+	if (*front == NULL)
+	{
 		*rear = NULL;
 	}
 
@@ -63,23 +67,26 @@ const binary_tree_t *dequeue(queue_node_t **front, queue_node_t **rear)
 
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	if (tree == NULL || func == NULL) {
+	if (tree == NULL || func == NULL)
 		return;
-	}
 
 	queue_node_t *front = NULL;
 	queue_node_t *rear = NULL;
 
 	enqueue(&front, &rear, tree);
 
-	while (front != NULL) {
+	while (front != NULL)
+	{
 		const binary_tree_t *current = dequeue(&front, &rear);
+
 		func(current->n);
 
-		if (current->left != NULL) {
+		if (current->left != NULL)
+		{
 			enqueue(&front, &rear, current->left);
 		}
-		if (current->right != NULL) {
+		if (current->right != NULL)
+		{
 			enqueue(&front, &rear, current->right);
 		}
 	}
