@@ -8,38 +8,46 @@
  *
  * @ancestor: grandparent node
  * @node:  node
+ *
+ * Return: 0;
  */
 
 
-int is_ancestor(const binary_tree_t *ancestor, const binary_tree_t *node) {
-    while (node != NULL) {
-        if (node == ancestor) {
-            return 1;
-        }
-        node = node->parent;
-    }
-    return 0;
+int is_ancestor(const binary_tree_t *ancestor, const binary_tree_t *node)
+{
+	while (node != NULL)
+	{
+		if (node == ancestor)
+			return (1);
+
+		node = node->parent;
+	}
+	return (0);
 }
 
 /**
- * *binary_trees_ancestor - function that finds the lowest common ancestor of two nodes
+ * binary_trees_ancestor - function that finds the lowest
+ * common ancestor of two nodes
  *
  * @first: First node
  * @second: Second node
+ *
+ * Return: 0;
  */
 
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+		const binary_tree_t *second)
 {
 	if (first == NULL || second == NULL)
-		return NULL;
+		return (NULL);
 
 	while (first != NULL)
 	{
 		if (is_ancestor(first, second))
 		{
-			return (binary_tree_t*)first;
+			return ((binary_tree_t *)first);
 		}
 		first = first->parent;
 	}
-	return NULL;
+	return (NULL);
 }
