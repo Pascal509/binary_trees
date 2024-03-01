@@ -2,17 +2,13 @@
 #include <stdio.h>
 #include "binary_trees.h"
 
-typedef struct queue_node {
-	const binary_tree_t *node;
-	struct queue_node *next;
-} queue_node_t;
 /**
  * enqueue - Function to enqueue a node in the queue
  *
  * @front: 
  * @rear:
  * @node: 
- *                                                                */     
+ */     
 void enqueue(queue_node_t **front, queue_node_t **rear, const binary_tree_t *node)
 {
 	queue_node_t *new_node = malloc(sizeof(queue_node_t));
@@ -34,11 +30,14 @@ void enqueue(queue_node_t **front, queue_node_t **rear, const binary_tree_t *nod
 
 /**
  * dequeue - Function to dequeue a node in the queue
- *                                                                * @front:
- * @rear:                                                         * @node:                                                         *                                                                */
-const binary_tree_t *dequeue(queue_node_t **front, queue_node_t **rear) {
+ * @front:
+ * @rear:
+ * @node:
+ */
+const binary_tree_t *dequeue(queue_node_t **front, queue_node_t **rear)
+{
 	if (*front == NULL) {
-		return NULL;
+		return (NULL);
 	}
 
 	const binary_tree_t *node = (*front)->node;
@@ -50,7 +49,7 @@ const binary_tree_t *dequeue(queue_node_t **front, queue_node_t **rear) {
 	}
 
 	free(temp);
-	return node;
+	return (node);
 }
 
 /**
@@ -65,7 +64,7 @@ const binary_tree_t *dequeue(queue_node_t **front, queue_node_t **rear) {
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
 	if (tree == NULL || func == NULL) {
-		return;  // Do nothing for invalid input
+		return;
 	}
 
 	queue_node_t *front = NULL;
@@ -84,6 +83,5 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 			enqueue(&front, &rear, current->right);
 		}
 	}
-}
 
 }
